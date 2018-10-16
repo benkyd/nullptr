@@ -4,7 +4,9 @@ const Config = require('./config');
 // const client = new Discord.Client();
 
 Logger.init();
-let config = new Config('./config.json')
+Logger.SetLevel(Logger.VERBOSE_LOGS);
+
+let config = new Config('./config/config.json');
 config.load();
 
 // client.on('ready', () => {

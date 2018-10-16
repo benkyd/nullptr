@@ -7,7 +7,7 @@ module.exports = class Config {
     }
 
     load() {
-        if (fs.existsSync(path)) {
+        if (fs.existsSync(this.path)) {
             
         }
     }

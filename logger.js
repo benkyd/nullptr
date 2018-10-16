@@ -18,10 +18,6 @@ module.exports = class Logger {
         LogLevel = level;
     }
 
-    static SetDialect(dialect) {
-        Dialect = dialect;
-    }
-
     static get VERBOSE_LOGS() {return 0;}
     static get DEBUG_LOGS() {return 1;}
     static get INFO_LOGS() {return 2;}
