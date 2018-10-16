@@ -3,7 +3,8 @@ const fs = require('fs');
 
 module.exports = class Config {
     constructor(path) {
-        this.path = path;
+        this.file = './resources/config/config.json';
+        this.path = [ './resources/', './resources/config' ] 
         this.Config = { 
             token: 'YOUR TOKEN HERE'
         };
@@ -11,9 +12,9 @@ module.exports = class Config {
 
     load() {
         Logger.info('Loading config');
-        if (fs.existsSync(this.path)) {
+        if (fs.existsSync(this.file)) {
             try {
-                this.Config = JSON.parse(fs.readFileSync(this.path));
+                this.Config = JSON.parse(fs.readFileSync(this.file));
                 if (!this.Config.token);
 
                 Logger.info('Config loaded successfully');
@@ -23,7 +24,10 @@ module.exports = class Config {
         } else {
             try {
                 Logger.error('No config found');
-                fs.writeFileSync(this.path, JSON.stringify(this.Config, null, 4));
+                for (let folder of this.path) {
+                    fs.mkdirSync(folder);
+                }
+                fs.writeFileSync(this.file, JSON.stringify(this.Config, null, 4));
                 Logger.warn(`Created config at: ${this.path}`);
                 Logger.panic('Config required to be complete');
             } catch (e) {

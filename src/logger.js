@@ -13,6 +13,17 @@ module.exports = class Logger {
             fs.writeFileSync(logPath, '');
         }
         fs.appendFileSync(logPath, '[SYSTEM STARTING UP] \n');
+
+
+        console.log(colours.rainbow(
+        '\t             _ _       _              \n' +       
+        '\t            | | |     | |             \n' +
+        '\t _ __  _   _| | |_ __ | |_ _ __       \n' +
+        '\t| \'_ \\| | | | | | \'_ \\| __| \'__| \n' +
+        '\t| | | | |_| | | | |_) | |_| |         \n' +
+        '\t|_| |_|\\__,_|_|_| .__/ \\__|_|       \n' +
+        '\t                 | |                  \n' +
+        '\t                 |_|                  \n'));
     }
 
     static SetLevel(level) {
@@ -27,6 +38,14 @@ module.exports = class Logger {
     static get DEBUG_LOGS() {return 1;}
     static get INFO_LOGS() {return 2;}
     static get WARN_LOGS() {return 3;}
+
+    static database(message) {
+        if (LogLevel > 0) return; 
+        let d = new Date();
+        fs.appendFileSync(logPath, `[${d.toLocaleString()}] [${Dialect}] ${message} \n`);
+        console.log('[' + d.toLocaleString() + '] [' 
+            + colours.magenta(Dialect) + '] ' + message);
+    }
 
     static middleware(message) {
         if (LogLevel > 0) return; 
