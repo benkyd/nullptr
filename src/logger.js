@@ -2,6 +2,7 @@ const colours = require('colors/safe');
 const fs = require('fs');
 
 let LogLevel = 1;
+let Dialect = 'SQLITE';
 let logPath = 'logs.log';
 
 module.exports = class Logger {
@@ -16,6 +17,10 @@ module.exports = class Logger {
 
     static SetLevel(level) {
         LogLevel = level;
+    }
+
+    static SetDialect(dialect) {
+        Dialect = dialect;
     }
 
     static get VERBOSE_LOGS() {return 0;}
