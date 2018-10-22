@@ -8,15 +8,15 @@ export class Database extends BaseDatabase {
         let connection = BaseDatabase.Connection;
         return new Promise((resolve, reject) => {
             connection
-            .query(query)
-            .then(result => {
-                Logger.database(JSON.stringify(res, null, 4));
-                resolve(result[0][0].result);
-            })
-            .catch(err => {
-                Logger.error('An error occured while querying a database: ' + err);
-                reject()
-            });
+                .query(query)
+                .then(result => {
+                    Logger.database(JSON.stringify(res, null, 4));
+                    resolve(result[0][0].result);
+                })
+                .catch(err => {
+                    Logger.error('An error occured while querying a database: ' + err);
+                    reject()
+                });
         });
     }
 }
