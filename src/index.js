@@ -11,7 +11,7 @@ async function init() {
     Logger.init();
     Logger.SetLevel(Logger.VERBOSE_LOGS);
     
-    let config = new Config();
+    const config = new Config();
     config.load();
 
     await Database.init();
