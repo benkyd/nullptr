@@ -1,11 +1,11 @@
-const colours = require('colors/safe');
-const fs = require('fs');
+import colours from 'colors/safe';
+import fs from 'fs';
 
 let LogLevel = 1;
 let Dialect = 'SQLITE';
 let logPath = 'logs.log';
 
-module.exports = class Logger {
+export class Logger {
     static init(path) {
         if (path) logPath = path;
 

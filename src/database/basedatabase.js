@@ -1,11 +1,11 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
-const Logger = require('../logger');
+import {Logger} from '../logger';
 
 let Connection;
 let Server;
 
-module.exports = class Database {
+export class BaseDatabase {
     static get Connection() { return Connection; }
     static get Server() { return Server; }
 

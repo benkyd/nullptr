@@ -1,8 +1,8 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
 
-const Logger = require('./logger');
-const Config = require('./config');
-const Database = require('./database/database');
+import {Logger} from './logger';
+import {Config} from './config';
+import {Database} from './database/database';
 
 let client;
 
@@ -15,7 +15,7 @@ async function init() {
     config.load();
 
     await Database.init();
-    Database.Server.lolxd();
+    Database.server.lolxd();
 
     client = new Discord.Client();
 }

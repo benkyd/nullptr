@@ -1,7 +1,8 @@
-const Logger = require('./logger');
-const fs = require('fs');
+import fs from 'fs';
 
-module.exports = class Config {
+import {Logger} from './logger';
+
+export class Config {
     constructor(path) {
         this.file = './resources/config/config.json';
         this.path = [ './resources/', './resources/config' ] 

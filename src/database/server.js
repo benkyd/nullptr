@@ -1,6 +1,9 @@
-const BaseDatabase = require('./basedatabase');
+import Sequelize from 'sequelize';
 
-module.exports.ServerTools = class ServerTools extends BaseDatabase {
+import {BaseDatabase} from './baseDatabase';
+import {Logger} from '../logger';
+
+export class ServerTools extends BaseDatabase {
     static lolxd() {
         console.log('lolcx')
     }
