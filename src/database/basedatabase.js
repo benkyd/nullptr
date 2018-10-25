@@ -3,11 +3,11 @@ import Sequelize from 'sequelize';
 import {Logger} from '../logger';
 
 let Connection;
-let Server;
+let Guild;
 
 export class BaseDatabase {
     static get Connection() { return Connection; }
-    static get Server() { return Server; }
+    static get Guild() { return Guild; }
 
     static async init() {
         Logger.info('Connecting to SQLite Database');
@@ -20,7 +20,7 @@ export class BaseDatabase {
             storage: './resources/database.sqlite',
         });
     
-        Server = Connection.define('server', {
+        Guild = Connection.define('Guild', {
             id: {
                 type: Sequelize.BIGINT,
                 primaryKey: true,
@@ -28,7 +28,7 @@ export class BaseDatabase {
             },
             name: Sequelize.BIGINT
         }, {
-            tableName: 'server'
+            tableName: 'guild'
         });
 
         try {
