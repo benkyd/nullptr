@@ -15,7 +15,7 @@ async function init() {
     config.load();
 
     await Database.init();
-    Database.server.lolxd();
+    new Database.Guilds.newGuild();
 
     client = new Discord.Client();
 }

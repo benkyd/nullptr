@@ -17,4 +17,4 @@ export class Database extends BaseDatabase {
     }
 }
 
-Database.server = require('./server').ServerTools;
+Database.Guilds = require('./server').GuildTools;
