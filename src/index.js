@@ -15,7 +15,8 @@ async function init() {
     config.load();
 
     await Database.init();
-    new Database.Guilds.newGuild();
+    Logger.debug(JSON.stringify(await Database.Guilds.newGuild(1234, "Hello"), null, 4));
+    Logger.debug(JSON.stringify(await Database.Guilds.deleteGuild(1234), null, 4));
 
     client = new Discord.Client();
 }
