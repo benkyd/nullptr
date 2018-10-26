@@ -6,8 +6,8 @@ export class Config {
     constructor(path) {
         this.file = './resources/config/config.json';
         this.path = [ './resources/', './resources/config' ] 
-        this.Config = { 
-            token: 'YOUR TOKEN HERE'
+        this.Configuration = { 
+            Token: 'YOUR TOKEN HERE'
         };
     }
 
@@ -15,8 +15,8 @@ export class Config {
         Logger.info('Loading config');
         if (fs.existsSync(this.file)) {
             try {
-                this.Config = JSON.parse(fs.readFileSync(this.file));
-                if (!this.Config.token);
+                this.Configuration = JSON.parse(fs.readFileSync(this.file));
+                if (!this.Configuration.Token) Logger.panic('Token is missing from config file');
 
                 Logger.info('Config loaded successfully');
             } catch (e) {
