@@ -18,6 +18,8 @@ async function init() {
     // Logger.debug(JSON.stringify(await Database.Guilds.deleteGuild(1234), null, 4));
 
     const client = new Discord.Client();
-    const eventHandler = new Events(client);
+
+    const eventHandler = new Events();
+    await eventHandler.init(client);
     eventHandler.handle();
 }
