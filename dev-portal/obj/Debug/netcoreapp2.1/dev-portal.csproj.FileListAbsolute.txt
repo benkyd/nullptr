@@ -1,0 +1,14 @@
+E:\Projects\nullptr-bot\dev-portal\bin\Debug\netcoreapp2.1\dev-portal.deps.json
+E:\Projects\nullptr-bot\dev-portal\bin\Debug\netcoreapp2.1\dev-portal.runtimeconfig.json
+E:\Projects\nullptr-bot\dev-portal\bin\Debug\netcoreapp2.1\dev-portal.runtimeconfig.dev.json
+E:\Projects\nullptr-bot\dev-portal\bin\Debug\netcoreapp2.1\dev-portal.dll
+E:\Projects\nullptr-bot\dev-portal\bin\Debug\netcoreapp2.1\dev-portal.pdb
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.csprojAssemblyReference.cache
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.csproj.CoreCompileInputs.cache
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.RazorAssemblyInfo.cache
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.RazorAssemblyInfo.cs
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.AssemblyInfoInputs.cache
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.AssemblyInfo.cs
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.RazorTargetAssemblyInfo.cache
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.dll
+E:\Projects\nullptr-bot\dev-portal\obj\Debug\netcoreapp2.1\dev-portal.pdb
