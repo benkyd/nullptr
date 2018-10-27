@@ -7,10 +7,20 @@ export class Events {
         this.client.login(Config.Token);
     }
 
-    async handle() {
-        this.client.on('ready', () => {
-            Logger.info(`Discord client logged in as ${this.client.user.tag}`);
-            Logger.ready();
-        });
+    async handleEvents() {
+        this.client.on('ready', () => {this.handleReady()});
+        this.client.on('message', async (message) => {this.handleMessage(message)});
+    }
+
+    async handleReady() {
+        this.client.user.setPresence('online');
+        this.client.user.setActivity(Config.NowPlaying);
+        Logger.info(`Discord client logged in as ${this.client.user.tag}`);
+        Logger.ready();
+    }
+
+    async handleMessage(...args) {
+        Logger.info(args[0]);
+        args[0].channel.send('lol u homo')
     }
 }
