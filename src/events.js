@@ -6,7 +6,7 @@ import { rejects } from 'assert';
 export class Events { // extends rate limits
     async init(client) {
         this.client = client;
-        // this.client.login(Config.Token);
+        this.client.login(Config.Token);
     }
 
     async handleEvents() {
@@ -29,7 +29,7 @@ export class Events { // extends rate limits
             return;
         }
 
-        let next = function() {
+        const next = function() {
             doNext = true;
         }
 
