@@ -5,8 +5,9 @@ import {Config} from './config';
 import {Database} from './database/database';
 import {Events} from './events';
 
-init();
-async function init() {
+let client;
+
+export async function init() {
     Logger.init();
     Logger.SetLevel(Logger.VERBOSE_LOGS);
     
@@ -15,7 +16,7 @@ async function init() {
 
     await Database.init();
 
-    const client = new Discord.Client();
+    client = new Discord.Client();
 
     const eventHandler = new Events();
     await eventHandler.init(client);
