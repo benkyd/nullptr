@@ -56,9 +56,9 @@ export class Logger {
     static middleware(message) {
         if (LogLevel > 0) return; 
         let d = moment().format(dateFormat);
-        fs.appendFileSync(logPath, `[${d.toLocaleString()}] [HTTP-MIDDLEWARE] ${message} \n`);
+        fs.appendFileSync(logPath, `[${d.toLocaleString()}] [MIDDLEWARE] ${message} \n`);
         console.log('[' + d.toLocaleString() + '] [' 
-            + colours.blue('HTTP-MIDDLEWARE') + '] ' + message);
+            + colours.blue('MIDDLEWARE') + '] ' + message);
     }
 
     static debug(message) {
