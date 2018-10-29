@@ -3,4 +3,4 @@ require('babel-register')({
     presets: [ 'env' ]
 });
 
-require('./src/index');
+require('./src/index').init();
