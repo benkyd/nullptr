@@ -46,25 +46,25 @@ export class Logger {
     static get WARN_LOGS() {return 3;}
 
     static database(message) {
-        if (LogLevel > 0) return; 
         let d = moment().format(dateFormat);
         fs.appendFileSync(logPath, `[${d.toLocaleString()}] [${Dialect}] ${message} \n`);
+        if (LogLevel > 0) return; 
         console.log('[' + d.toLocaleString() + '] [' 
             + colours.magenta(Dialect) + '] ' + message);
     }
 
     static middleware(message) {
-        if (LogLevel > 0) return; 
         let d = moment().format(dateFormat);
         fs.appendFileSync(logPath, `[${d.toLocaleString()}] [MIDDLEWARE] ${message} \n`);
+        if (LogLevel > 0) return; 
         console.log('[' + d.toLocaleString() + '] [' 
             + colours.blue('MIDDLEWARE') + '] ' + message);
     }
 
     static debug(message) {
-        if (LogLevel > 1) return; 
         let d = moment().format(dateFormat);
         fs.appendFileSync(logPath, `[${d.toLocaleString()}] [DEBUG] ${message} \n`);
+        if (LogLevel > 1) return; 
         console.log('[' + d.toLocaleString() + '] [' 
             + colours.cyan('DEBUG') + '] ' + message);
     }
@@ -77,17 +77,17 @@ export class Logger {
     }
     
     static info(message) {
-        if (LogLevel > 2) return; 
         let d = moment().format(dateFormat);
         fs.appendFileSync(logPath, `[${d.toLocaleString()}] [INFO] ${message} \n`);
+        if (LogLevel > 2) return; 
         console.log('[' + d.toLocaleString() + '] [' 
             + colours.green('INFO') + '] ' + message);
     }
 
     static warn(message) {
-        if (LogLevel > 3) return; 
         let d = moment().format(dateFormat);
         fs.appendFileSync(logPath, `[${d.toLocaleString()}] [WARN] ${message} \n`);
+        if (LogLevel > 3) return; 
         console.log('[' + d.toLocaleString() + '] [' 
             + colours.yellow('WARN') + '] ' + message);
     }
