@@ -4,7 +4,7 @@ import {RateLimits} from './ratelimits'
 
 export class Events extends RateLimits { // extends rate limits
     constructor() {
-        super()
+        super();
     }
 
     async init(client) {
@@ -22,6 +22,13 @@ export class Events extends RateLimits { // extends rate limits
             );
         });
 
+        this.client.on('error', async (err) => {
+            this.handle(err,
+                [this.handleError],
+                this.client
+            );
+        });
+
         this.client.on('message', async (message) => {
             this.handle(message, 
                 [super.request, this.handleMessage],
@@ -29,6 +36,9 @@ export class Events extends RateLimits { // extends rate limits
             );
         });
     }
+
+
+
 
     async handle(obj = [null], callbacks = [undefined], client) {
         let doNext = false;
@@ -56,9 +66,14 @@ export class Events extends RateLimits { // extends rate limits
         next();
     }
 
-    async handleMessage(obj, client, next) {
-        if (client.user.id == obj.author.id) return;
-        if (obj.limiting) obj.channel.send(`${obj.author} You are being rate limited`);
+    async handleError(err, client, next) {
+        Logger.error(`An error occured with the Discord API: ${err}`);
+        next();
+    }
+
+    async handleMessage(message, client, next) {
+        if (client.user.id == message.author.id) return;
+        if (message.limiting) message.channel.send(`${message.author} You are being rate limited`);
         next();
     }
 }

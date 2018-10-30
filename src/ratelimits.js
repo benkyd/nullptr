@@ -11,10 +11,10 @@ export class RateLimits {
 
     async request(obj, client, next) {
         let id = obj.author.id;
-        if (id == client.user.id) { return; }
+        if (id == client.user.id) return;
         
         if (!buckets[id]) {
-            Logger.debug(`New rate limiting bucket`);
+            Logger.debug(`New rate limiting bucket for ${id}`);
 
             buckets[id] = {id: id, tokens: [], lastUsed: new Date().getTime()};
             for (let i = 0; i < requestsPerSecond; i++) {
@@ -27,7 +27,6 @@ export class RateLimits {
 
         buckets[id].lastUsed = new Date().getTime();
         
-        Logger.debug(buckets[id].tokens.length);
         if (buckets[id].tokens.length <= 0) {
             Logger.middleware(`${id} is being rate limited`);
             obj.limiting = true;
