@@ -2,7 +2,7 @@ import {Logger} from './logger';
 
 export class MessageManager {
     static async init() {
-        
+
     }
 
     static async handleMessage(message, client, next) {

@@ -1,5 +1,5 @@
 
-export class CommandLoader {
+export class CommandManager {
     static async load() {
 
     }
