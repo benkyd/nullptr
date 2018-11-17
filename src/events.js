@@ -1,42 +1,42 @@
 import {Logger} from './logger';
 import {Config} from './config';
 import {RateLimits} from './ratelimits'
+import {MessageManager} from './messagemanager';
 
-export class Events extends RateLimits { // extends rate limits
+export class Events extends RateLimits {
     constructor() {
         super();
     }
 
     async init(client) {
-        this.client = client;
-        this.client.login(Config.Token);
+        this._client = client;
+        this._client.login(Config.Token);
     }
 
     get Client() {return this.client;}
 
     async handleEvents() {
-        this.client.on('ready', async () => {
+        this._client.on('ready', async () => {
             this.handle(undefined, 
                 [this.handleReady],
-                this.client
+                this._client
             );
         });
 
-        this.client.on('error', async (err) => {
+        this._client.on('error', async (err) => {
             this.handle(err,
                 [this.handleError],
-                this.client
+                this._client
             );
         });
 
-        this.client.on('message', async (message) => {
+        this._client.on('message', async (message) => {
             this.handle(message, 
-                [super.request, this.handleMessage],
-                this.client
+                [super.request, MessageManager.handleMessage],
+                this._client
             );
         });
     }
-
 
 
 
@@ -68,12 +68,6 @@ export class Events extends RateLimits { // extends rate limits
 
     async handleError(err, client, next) {
         Logger.error(`An error occured with the Discord API: ${err}`);
-        next();
-    }
-
-    async handleMessage(message, client, next) {
-        if (client.user.id == message.author.id) return;
-        if (message.limiting) message.channel.send(`${message.author} You are being rate limited`);
         next();
     }
 }

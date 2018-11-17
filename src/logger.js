@@ -5,7 +5,7 @@ import fs from 'fs';
 let LogLevel = 1;
 let Dialect = 'SQLITE';
 let logPath = 'logs.log';
-let dateFormat = 'DD-MM-YY HH:MM:ss'
+let dateFormat = 'DD-MM-YY HH:mm:ss'
 
 export class Logger {
     static init(path) {
