@@ -19,7 +19,7 @@ export class BaseDatabase {
             operatorsAliases: false,
             storage: './resources/database.sqlite',
         });
-    
+
         Guild = Connection.define('Guild', {
             id: {
                 type: Sequelize.BIGINT,
@@ -39,4 +39,3 @@ export class BaseDatabase {
         Logger.info('Connected to SQLite Database');
     }
 }
-
