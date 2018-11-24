@@ -4,6 +4,7 @@ import {Logger} from './logger';
 import {Config} from './config';
 import {Database} from './database/database';
 import {Events} from './events';
+import {MessageManager} from './messagemanager';
 
 let client;
 
@@ -16,9 +17,12 @@ export async function init() {
 
     await Database.init();
 
+    await MessageManager.init();
+    
     client = new Discord.Client();
-
+    
     const eventHandler = new Events();
     await eventHandler.init(client);
     eventHandler.handleEvents();
+
 }

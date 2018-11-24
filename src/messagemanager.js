@@ -1,8 +1,9 @@
 import {Logger} from './logger';
+import {CommandManager} from './commandmanager';
 
 export class MessageManager {
     static async init() {
-
+        CommandManager.load();
     }
 
     static async handleMessage(message, client, next) {
