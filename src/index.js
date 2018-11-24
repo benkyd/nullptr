@@ -5,6 +5,7 @@ import {Config} from './config';
 import {Database} from './database/database';
 import {Events} from './events';
 import {MessageManager} from './messagemanager';
+import {CommandManager} from './commandmanager';
 
 let client;
 
@@ -16,7 +17,8 @@ export async function init() {
     Config.load();
 
     await Database.init();
-
+    
+    console.log();
     await MessageManager.init();
     
     client = new Discord.Client();
@@ -25,4 +27,5 @@ export async function init() {
     await eventHandler.init(client);
     eventHandler.handleEvents();
 
+    CommandManager.reload();
 }

@@ -1,3 +1,5 @@
+import {Logger} from "../logger";
+
 export class Module {
     static get Name() {return 'Generic module 1'}
     static get Author() {return 'Ben (plane000)#8618'}
@@ -7,7 +9,7 @@ export class Module {
     }
 
     static Dispose() {
-
+        Logger.error('module disposed')
     }
 }
 
@@ -18,16 +20,16 @@ export class Command1 {
     static get Description() {return 'Echos the users input'}
     static get Module() {return Module;}
 
-    static Init() {
+    static async Init() {
 
     }
 
-    static Exec(message, client, next) {
+    static async Exec(message, client, next) {
 
     }
 
-    static Dispose() {
-
+    static async Dispose() {
+        Logger.error('command disposed')
     }
 }
 
