@@ -72,17 +72,21 @@ export class CommandManager {
         console.log();
         Logger.info('Reloading Modules and Commands');
         
-        // Does not call dispose function
-        for (let command of commands) {
-            await command.Dispose();
+        for (let command in commands) {
+            await commands[command].Dispose();
         }
         Logger.info('Disposed registerd commands');
 
-        for (let mod of modules) {
-            await mod.module.Dispose();
-            delete require.cache[require.resolve(mod.file)];
+        // This broke af lol ReeEEEEeeE
+        for (let mod in modules) {
+            // Logger.error(modules[mod].module);
+            // await modules[mod].module.Dispose();
+            delete require.cache[require.resolve(modules[mod].mod)]; //file.split('.')[0])];
         }
         Logger.info('Disposed registerd modules');
+
+        modules = [];
+        commands = [];
 
         CommandManager.load(1);
     }

@@ -7,10 +7,6 @@ export class Module {
     static Init() {
 
     }
-
-    static Dispose() {
-        Logger.error('module disposed')
-    }
 }
 
 export class Command1 {
