@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-import {BaseDatabase} from './baseDatabase';
+import {BaseDatabase} from './basedatabase';
 import {Logger} from '../logger';
 
 export class Database extends BaseDatabase {
