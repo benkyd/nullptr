@@ -27,5 +27,4 @@ export async function init() {
     await eventHandler.init(client);
     eventHandler.handleEvents();
 
-    CommandManager.reload();
 }
